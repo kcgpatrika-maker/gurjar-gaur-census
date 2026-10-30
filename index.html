@@ -21,11 +21,11 @@
         }
         .container { max-width: 1000px; margin: 0 auto; }
         
-        /* शानदार हेडर: बाईं ओर फोटो, पूरे क्षेत्र में बड़ा और बोल्ड समाज का नाम */
+        /* मोबाइल और डेस्कटॉप दोनों पर फोटो हमेशा लेफ्ट में और टाइटल आगे रहेगा */
         header {
             background: linear-gradient(135deg, var(--primary), #5a0000);
             color: white;
-            padding: 22px 20px;
+            padding: 18px 15px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             margin-bottom: 20px;
@@ -34,7 +34,7 @@
             justify-content: flex-start;
             width: 100%;
             box-sizing: border-box;
-            gap: 20px;
+            gap: 15px;
         }
         .header-left {
             display: flex;
@@ -43,19 +43,20 @@
             flex-shrink: 0;
         }
         .header-left img {
-            width: 85px;
-            height: 85px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             border: 2px solid var(--secondary);
             object-fit: cover;
             background: #fff;
         }
         .header-left .caption {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
             color: var(--secondary);
-            margin-top: 5px;
+            margin-top: 3px;
             text-align: center;
+            white-space: nowrap;
         }
         .header-title {
             text-align: left;
@@ -63,27 +64,23 @@
         }
         .header-title h1 {
             margin: 0;
-            font-size: 42px; /* बहुत बड़े और मोटे अक्षर */
+            font-size: 36px;
             font-weight: 900;
             color: #ffffff;
-            letter-spacing: 0.8px;
+            letter-spacing: 0.5px;
             line-height: 1.2;
         }
         .header-title p {
-            margin: 6px 0 0;
+            margin: 4px 0 0;
             font-size: 14px;
             color: var(--secondary);
             font-weight: 600;
         }
-        
-        @media (max-width: 600px) {
-            header {
-                flex-direction: column;
-                text-align: center;
-            }
-            .header-title { text-align: center; }
-            .header-title h1 { font-size: 22px; }
-            .header-title p { font-size: 12px; }
+
+        @media (max-width: 480px) {
+            .header-title h1 { font-size: 18px; }
+            .header-title p { font-size: 11px; }
+            .header-left img { width: 55px; height: 55px; }
         }
 
         .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
@@ -128,12 +125,12 @@
 
 <div class="container">
     <header>
-        <!-- बाईं तरफ महर्षि गौतम जी की तस्वीर (जो गिटहब पर gautam.jpg नाम से अपलोड होगी) -->
+        <!-- फोटो हमेशा बाईं तरफ -->
         <div class="header-left">
-            <img src="gautam.jpg" alt="महर्षि गौतम" onerror="this.src='https://via.placeholder.com/85?text=गौतम'">
+            <img src="gautam.jpg" alt="महर्षि गौतम" onerror="this.src='https://via.placeholder.com/70?text=गौतम'">
             <span class="caption">जय महर्षि गौतम</span>
         </div>
-        <!-- पूरे क्षेत्र में फैले हुए बड़े और मोटे अक्षर में समाज का नाम -->
+        <!-- आगे फैला हुआ समाज का बड़ा नाम -->
         <div class="header-title">
             <h1>श्री गुर्जर गौड़ ब्राह्मण समाज</h1>
             <p>(जनसांख्यिकी एवं सामाजिक डेटाबेस)</p>
