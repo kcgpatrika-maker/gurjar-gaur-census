@@ -21,11 +21,11 @@
         }
         .container { max-width: 1000px; margin: 0 auto; }
         
-        /* सुधरा हुआ पूरा फैला हुआ हेडर */
+        /* नया शानदार हेडर: बाईं ओर फोटो, दाईं ओर समाज का नाम */
         header {
             background: linear-gradient(135deg, var(--primary), #5a0000);
             color: white;
-            padding: 20px;
+            padding: 18px 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             margin-bottom: 20px;
@@ -34,11 +34,13 @@
             justify-content: space-between;
             width: 100%;
             box-sizing: border-box;
+            gap: 15px;
         }
         .header-left {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 15px;
+            flex-shrink: 0;
         }
         .header-left img {
             width: 75px;
@@ -49,39 +51,39 @@
             background: #fff;
         }
         .header-left .caption {
-            font-size: 13px;
+            font-size: 12px;
             font-weight: bold;
             color: var(--secondary);
-            margin-top: 3px;
-            display: block;
+            margin-top: 4px;
             text-align: center;
         }
         .header-title {
-            text-align: right;
+            text-align: center;
             flex-grow: 1;
         }
         .header-title h1 {
             margin: 0;
-            font-size: 28px;
+            font-size: 26px;
             font-weight: 800;
             color: #ffffff;
             letter-spacing: 0.5px;
         }
         .header-title p {
-            margin: 4px 0 0;
-            font-size: 14px;
+            margin: 5px 0 0;
+            font-size: 13px;
             color: var(--secondary);
-            font-weight: 500;
+            font-weight: 600;
         }
         
         @media (max-width: 600px) {
             header {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
+                flex-direction: row;
+                text-align: left;
+                padding: 12px 15px;
             }
-            .header-title { text-align: center; }
-            .header-title h1 { font-size: 20px; }
+            .header-title h1 { font-size: 18px; }
+            .header-title p { font-size: 11px; }
+            .header-left img { width: 60px; height: 60px; }
         }
 
         .tabs { display: flex; gap: 10px; margin-bottom: 20px; }
@@ -126,13 +128,12 @@
 
 <div class="container">
     <header>
+        <!-- बाईं तरफ महर्षि गौतम जी की तस्वीर और नाम -->
         <div class="header-left">
-            <div>
-                <!-- महर्षि गौतम जी की तस्वीर का पक्का लिंक -->
-                <img src="https://i.ibb.co/6R2M3k7/image-30d97f.jpg" alt="महर्षि गौतम" onerror="this.src='https://via.placeholder.com/75?text=गौतम'">
-                <span class="caption">जय महर्षि गौतम</span>
-            </div>
+            <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEASABIAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////wgALCAAPAA8BAREA/8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPxA=" alt="महर्षि गौतम">
+            <span class="caption">जय महर्षि गौतम</span>
         </div>
+        <!-- दाईं तरफ पूरे हेडर में फैला हुआ समाज का मुख्य नाम -->
         <div class="header-title">
             <h1>श्री गुर्जर गौड़ ब्राह्मण समाज</h1>
             <p>(जनसांख्यिकी एवं सामाजिक डेटाबेस)</p>
@@ -147,7 +148,7 @@
     <!-- TAB 1: DASHBOARD -->
     <div id="dashboardTab">
         <div class="card">
-            <h3>📈 जनसंख्या एवं परिवार</h3>
+            <h3>📈 जनसंख्या एवं परिवार </h3>
             <div class="grid-4">
                 <div class="stat-box"><div class="num" id="statFamilies">0</div><div class="lbl">कुल परिवार</div></div>
                 <div class="stat-box"><div class="num" id="statPopulation">0</div><div class="lbl">कुल जनसंख्या</div></div>
@@ -363,7 +364,7 @@
             head_gotra_nani: document.getElementById("h_gotra_nani").value,
             spouse_gotra_self: document.getElementById("s_gotra_self").value,
             spouse_gotra_mother: document.getElementById("s_gotra_mother").value,
-            spouse_gotra_gm: document.getElementById("s_got/ra_gm").value,
+            spouse_gotra_gm: document.getElementById("s_gotra_gm").value,
             spouse_gotra_nani: document.getElementById("s_gotra_nani").value,
             total_members: members.length,
             members: members,
@@ -406,7 +407,7 @@
                 totalFam++;
                 let members = [];
                 try { members = JSON.parse(row[18] || "[]"); } catch(e){}
-                Head
+                
                 totalPop += members.length;
                 members.forEach(m => {
                     if (m.gender === "पुरुष") totalM++;
